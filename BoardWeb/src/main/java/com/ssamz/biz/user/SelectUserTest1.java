@@ -23,10 +23,10 @@ public class SelectUserTest1 {
 			// SQL 전송
 			rs = stmt.executeQuery();
 			
-			
+		
 		System.out.println("[USER LIST]");
 		rs.next();
-		System.out.print(rs.getString("USERNAME") + " :");
+		System.out.print(rs.getString("USERNAME") + " :"); 
 		System.out.print(rs.getString("PASSWORD") + " :");
 		System.out.print(rs.getString("NAME") + " :");
 		System.out.println(rs.getString("ROLE"));
