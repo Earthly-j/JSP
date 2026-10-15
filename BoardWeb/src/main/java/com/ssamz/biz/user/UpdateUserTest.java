@@ -10,9 +10,7 @@ public class UpdateUserTest {
 		public static void main(String[] args) {
 			UserDAO dao = new UserDAO();
 			
-			dao.updateUser("modified", "ADMIN", "ssamz");
-			
-			dao.getUserList();
+			dao.updateUser("테스트2", "ADMIN", "test");
 			
 		}
 	}

@@ -1,11 +1,10 @@
 package com.ssamz.biz.user;
 
+import com.ssamz.common.JDBCUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import com.ssamz.common.JDBCUtil;
 
 public class UserDAO {
       private Connection conn = null;
@@ -35,13 +34,13 @@ public class UserDAO {
       
       
       
-      public void updateUser(String name, String role, String username) {
+      public void updateUser(UserVO vo) {
 		  try {
 			  conn = JDBCUtil.getConnection();
 			  stmt = conn.prepareStatement(USER_UPDATE);
-			  stmt.setString(1, name);
-			  stmt.setString(2, role);
-			  stmt.setString(3, username);
+			  stmt.setString(1, vo.getName());
+			  stmt.setString(2, vo.getRole());
+			  stmt.setString(3, vo.getUsername());
 			  stmt.executeUpdate();
 			 
 		  } catch (SQLException e) {
@@ -53,15 +52,15 @@ public class UserDAO {
       
       
       
-      public void insertUser (String id, String password, String name, String role) {
+      public void insertUser (UserVO vo) {
 		  try {
-			  conn = JDBCUtil.getConnection();
-			  stmt = conn.prepareStatement(USER_INSERT);
-			  stmt.setString(1, id);
-			  stmt.setString(2, password);
-			  stmt.setString(3, name);
-			  stmt.setString(4, role);
-			  stmt.executeUpdate();
+			 conn = JDBCUtil.getConnection();
+			 stmt = conn.prepareStatement(USER_INSERT);
+			 stmt.setString(1, vo.getUsername());
+			 stmt.setString(2, vo.getPassword());
+			 stmt.setString(3, vo.getName());
+			 stmt.setString(4, vo.getRole());
+			 
 			  
 			  int count = stmt.executeUpdate();
 			  System.out.println(count + "건 입력되었습니다.");

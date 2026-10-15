@@ -11,11 +11,22 @@ public class InsertUserTest {
 
 	public static void main(String[] args) {
 	
+		
 			
 		UserDAO dao = new UserDAO(); // create UserDAO object
 		
-		dao.insertUser("test", "test", "테스트", "USER"); // enroll user
-			
+		UserVO vo = new UserVO(); // create UserVO object
+		
+		vo.setUsername("test");
+		
+		vo.setPassword("1234");
+		
+		vo.setName("테스트");
+
+		vo.setRole("USER");		
+		
+		dao.insertUser(vo); // insert user using UserVO object
+				
 		dao.getUserList(); // refer list
 		
 		
