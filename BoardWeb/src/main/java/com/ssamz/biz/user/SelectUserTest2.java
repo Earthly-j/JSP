@@ -1,11 +1,10 @@
 package com.ssamz.biz.user;
 
+import com.ssamz.common.JDBCUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import com.ssamz.common.JDBCUtil;
 
 public class SelectUserTest2 {
 	

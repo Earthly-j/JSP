@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserDAO {
       private Connection conn = null;
       private PreparedStatement stmt = null;
@@ -74,23 +77,27 @@ public class UserDAO {
       
       
       
-      public void getUserList() {
+      public List<UserVO> getUserList() {
+    	  List<UserVO> userList = new ArrayList<UserVO>();
 			try {
 				  conn = JDBCUtil.getConnection();
 				  stmt = conn.prepareStatement(USER_LIST);
 				  rs = stmt.executeQuery();
 				  System.out.println("[USER LIST]");
 				  while(rs.next()) {
-						System.out.print(rs.getString("USERNAME") + " :");
-						System.out.print(rs.getString("PASSWORD") + " :");
-						System.out.print(rs.getString("NAME") + " :");
-						System.out.println(rs.getString("ROLE"));
+						UserVO user = new UserVO();
+						user.setUsername(rs.getString("username"));
+						user.setPassword(rs.getString("password"));
+						user.setName(rs.getString("name"));
+						user.setRole(rs.getString("role"));
+						userList.add(user);
 				  }
 			} catch (SQLException e) {
 				  e.printStackTrace();
 			} finally {
 				  JDBCUtil.close(rs, stmt, conn);
 			}
+			return userList;
 	  }
 	}
 

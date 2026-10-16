@@ -1,0 +1,5 @@
+{
+  "java.project.referencedLibraries": [
+    "BoardWeb/src/main/webapp/WEB-INF/lib/**/*.jar"
+  ]
+}
