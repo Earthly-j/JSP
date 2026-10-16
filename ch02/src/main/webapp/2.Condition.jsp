@@ -4,10 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>2. Condition</title>
-<%-- 날짜: 2024/08/05
-	 이름: 박준영
-	 내용: 조건문 실습 
---%>
+
 </head>
 <body>
 	<h3>2. 조건문</h3>

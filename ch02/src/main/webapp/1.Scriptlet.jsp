@@ -4,10 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <title>1.Scriptlet</title>
-<%-- 날짜: 2024/08/05
-	 이름: 박준영
-	 내용: JSP 기본문법 실습 
---%>
 </head>
 <body>
 	<h3>1. 스크립트 요소</h3>
